@@ -1,0 +1,48 @@
+#wrap {
+
+    align-content: center;
+    margin: auto;
+}
+
+#types_text, #looking_text {
+    text-align:center;
+}
+.read_bt {
+    width: 170px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+    display: flex;
+}
+
+.read_bt a {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #d78373;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #d78373;
+    text-transform: uppercase;
+    padding: 8px;
+}
+
+.read_bt a:hover {
+    color: #3b3b3b;
+    border: 1px solid #3b3b3b;
+}
+
+#login-wraper {
+
+    width: auto;
+    align-content: center;
+    margin: auto;
+}
+
+#register-wrap {
+
+    width: auto;
+    align-content: center;
+    margin: auto;
+}
+

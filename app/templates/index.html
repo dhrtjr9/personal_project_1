@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/style.css')}}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <!-- <a href="/about">테스트</a> -->
+    <!-- 네비게이션 바 -->
+    <div id="wrap">
+        <!-- Nav Bar 오른쪽 정렬 -->
+        <nav class="navbar navbar-expand-sm bg-body-tertiary navbar-">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#" img src="/static/images/catlogo_1.png">Woori</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="cartPage()">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">SignUp</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </div>
+</div>
+        <center>
+            <div class="container > </div>
+            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel"></div>
+                <div class="carousel-inner" role="listbox" style="max-height: 700px" margin="0">
+                    <div class="carousel-item active">
+                        <img class="d-block img-fluid" src="{{ url_for ('static', filename='images/0721.jpg')}}" width="1350">
+                        <div class="carousel-caption">
+                            <!-- <h3>Los Angeles</h3>
+                            <p>We had such a great time in LA!</p> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="{{ url_for ('static', filename='images/abput-img.png')}}" width="1350">
+                        <div class="carousel-caption">
+                            <!-- <h3>Los Angeles</h3>
+                            <p>We had such a great time in LA!</p> -->
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="{{ url_for ('static', filename='images/food.jpg')}}" width="1350">
+                        <div class="carousel-caption">
+                            <!-- <h3>Los Angeles</h3>
+                            <p>We had such a great time in LA!</p> -->
+                        </div>
+                    </div>
+                </div>
+                </div></center>
+                <br><br>
+                <!-- 상품리스트 -->
+                <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-1.png')}}"></div>
+                        <h4 class="types_text">크림치즈 베이글</h4>
+                        <p class="looking_text">대파와 크림치즈의 특별한 만남123</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(1)">장바구니 담기</a></div>
+                    </div>
+                    <br>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-2.png')}}"></div>
+                        <h4 class="types_text">블루베리 베이글</h4>
+                        <p class="looking_text">한땀 한땀 키운 블루베리를 활용한..!</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(2)">장바구니 담기</a></div>
+                    </div>
+                    <br>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-3.png')}}"></div>
+                        <h4 class="types_text">베이직 베이글</h4>
+                        <p class="looking_text">한 입 먹는 순간..말잇못....</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(3)">장바구니 담기</a></div>
+                    </div>
+                    <br>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-4.png')}}"></div>
+                        <h4 class="types_text">초코 베이글</h4>
+                        <p class="looking_text">스트레스 받는분 이거 드세요!</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(4)">장바구니 담기</a></div>
+                        
+                    </div>
+                        <br>
+                    <div class="container-fluid"></div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-1.png')}}"></div>
+                        <h4 class="types_text">버터 베이글</h4>
+                        <p class="looking_text">대파와 크림치즈의 특별한 만남</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(5)">장바구니 담기</a></div>
+                    </div>
+                    <br>
+                        <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-2.png')}}"></div>
+                        <h4 class="types_text">호밀 베이글</h4>
+                        <p class="looking_text">한땀 한땀 키운 블루베리를 활용한..!</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(6)">장바구니 담기</a></div>
+                    </div>
+                    <br>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-3.png')}}"></div>
+                        <h4 class="types_text">소금 베이글</h4>
+                        <p class="looking_text">한 입 먹는 순간..말잇못....</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(7)">장바구니 담기</a></div>
+                    </div>
+                    <br>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="coffee_img"><img src="{{ url_for('static', filename='images/img-4.png')}}"></div>
+                        <h4 class="types_text">크림 치즈</h4>
+                        <p class="looking_text">스트레스 받는분 이거 드세요!</p>
+                        <div class="read_bt"><a href="#" onclick="addToCart(8)">장바구니 담기</a></div>
+                <br>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script>
+    function run() {alert("장바구니에 추가되었습니다.")}
+
+    function addToCart(productId) {
+        console.log("장바구니에 담아보자!!")
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/cart', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // alert('장바구니에 상품을 추가했습니다.');
+                    var response = JSON.parse(xhr.responseText);
+                    alert(response.message);
+                } else {
+                    alert('장바구니 추가에 실패했습니다.');
+                }
+            }
+        };
+        xhr.send(JSON.stringify({ product_id: productId }));
+    }
+
+    function cartPage() {
+        console.log("장바구니 페이지로 이동!!")
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/cart', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log('장바구니 페이지 이동 완료');
+
+                    // 받은 HTML을 현재 페이지에서 새로운 페이지로 이동
+                    window.location.href = '/cart';
+                } else {
+                    console.log('장바구니 페이지 에러');
+                }
+            }
+        };
+        xhr.send();
+    }
+
+</script>
+</body>
+</html>
