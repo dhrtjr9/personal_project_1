@@ -6,7 +6,7 @@ import functools
 from ..forms import UserLoginForm
 from ..forms import ProductForm
 import sqlite3
-import logging, logstash
+import logging
 import logging.handlers
 
 test = Blueprint('test', __name__, url_prefix='/')
