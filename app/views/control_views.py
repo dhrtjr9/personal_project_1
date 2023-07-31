@@ -1,5 +1,5 @@
 
-from flask import Blueprint, request, render_template, flash, url_for, session, g, redirect, jsonify, Flask
+from flask import Blueprint, request, render_template, flash, url_for, session, g, redirect, jsonify, Flask, current_app
 from app.models import User, Product
 from app import db
 import functools
@@ -7,19 +7,48 @@ from ..forms import UserLoginForm
 from ..forms import ProductForm
 import sqlite3
 import logging, logstash
+import logging.handlers
 
 test = Blueprint('test', __name__, url_prefix='/')
 
+# 로그 파일 설정
+logging.basicConfig(filename='test.log', level=logging.INFO)
+
+# Logstash로 로그 데이터를 전송하는 함수
+def send_log_to_logstash(record):
+    host = '127.0.0.1'  # Logstash 서버의 호스트 주소
+    port = 5000  # Logstash 서버의 수신 포트
+    handler = logging.handlers.HTTPHandler(host, port, method='POST')
+    formatter = logging.Formatter('%(asctime)s [%(levelname)s] [%(name)s] %(message)s')
+    handler.setFormatter(formatter)
+    logger = logging.getLogger('flask_log')
+    logger.addHandler(handler)
+    logger.setLevel(logging.INFO)
+    logger.handle(record)
+
 @test.route('/')
 def hello():
+    current_app.logger.debug('This is a debug message')
+    current_app.logger.info('This is an info message')
+    current_app.logger.warning('This is a warning message')
+    current_app.logger.error('This is an error message')
+
+    handlers = current_app.logger.handlers
+    for handler in handlers:
+        if isinstance(handler, logging.FileHandler):
+            log_file_path = handler.baseFilename
+        print("로그 파일 경로:", log_file_path)
+        break
     return render_template("index.html")
 
 @test.route('/about')
 def about():
+    current_app.logger.info('This is an ABOUT PAGE')
     return "about World!"
 
 @test.route('/cart/<int:id>')
 def cart(id):
+    current_app.logger.info('상품을 장바구니에 담는 페이지')
     form = ProductForm()
     products = Product.query.get_or_404(id)
     print(products)
@@ -28,6 +57,7 @@ def cart(id):
 
 @test.route('/cart', methods=['GET'])
 def get_cart_info():
+    current_app.logger.info('장바구니 진입 페이지')
     try:
         print('장바구니 api 진입')
         conn = sqlite3.connect('test.db')
@@ -72,7 +102,7 @@ def get_cart_info():
 
 @test.route('/cart', methods=['POST'])
 def add_to_cart():
-
+    current_app.logger.info('장바구니 페이지 진입')
     try:
         data = request.get_json()                                       # 클라이언트에서 전달한 데이터를 JSON 형태
         product_id = data.get('product_id')                             # product_id 추출
@@ -132,6 +162,7 @@ def add_to_cart():
 
 @test.route('/kakaopay/<int:id>')
 def kakaopay(id):
+    current_app.logger.info('결제 페이지 진입 중')
     form = ProductForm()
     products = Product.query.get_or_404(id)
     if form.validate_on_submit():

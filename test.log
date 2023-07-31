@@ -1,0 +1,36 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:¿ÂπŸ±∏¥œ ¡¯¿‘ ∆‰¿Ã¡ˆ
+INFO:werkzeug:127.0.0.1 - - [31/Jul/2023 16:36:48] "GET /cart HTTP/1.1" 200 -
+INFO:app:¿ÂπŸ±∏¥œ ¡¯¿‘ ∆‰¿Ã¡ˆ
+INFO:werkzeug:127.0.0.1 - - [31/Jul/2023 16:36:48] "GET /cart HTTP/1.1" 200 -
+INFO:app:¿ÂπŸ±∏¥œ ∆‰¿Ã¡ˆ ¡¯¿‘
+INFO:werkzeug:127.0.0.1 - - [31/Jul/2023 16:36:52] "POST /cart HTTP/1.1" 200 -
+INFO:app:¿ÂπŸ±∏¥œ ¡¯¿‘ ∆‰¿Ã¡ˆ
+INFO:werkzeug:127.0.0.1 - - [31/Jul/2023 16:36:54] "GET /cart HTTP/1.1" 200 -
+INFO:app:¿ÂπŸ±∏¥œ ¡¯¿‘ ∆‰¿Ã¡ˆ
+INFO:werkzeug:127.0.0.1 - - [31/Jul/2023 16:36:54] "GET /cart HTTP/1.1" 200 -
+INFO:app:∞·¡¶ ∆‰¿Ã¡ˆ ¡¯¿‘ ¡ﬂ
+ERROR:app:Exception on /kakaopay/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\okseok\anaconda3\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\okseok\anaconda3\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\okseok\anaconda3\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\okseok\anaconda3\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\ITStudy\06_flask\onlineshop\personal_project-main\app\views\control_views.py", line 171, in kakaopay
+    return redirect(url_for('cart.html', products=products, form=form))
+  File "C:\Users\okseok\anaconda3\lib\site-packages\flask\helpers.py", line 225, in url_for
+    return current_app.url_for(
+  File "C:\Users\okseok\anaconda3\lib\site-packages\flask\app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\okseok\anaconda3\lib\site-packages\flask\app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "C:\Users\okseok\anaconda3\lib\site-packages\werkzeug\routing\map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'cart.html' with values ['form', 'products']. Did you mean 'test.hello_html' instead?
+INFO:werkzeug:127.0.0.1 - - [31/Jul/2023 16:36:55] "[35m[1mGET /kakaopay/1 HTTP/1.1[0m" 500 -
