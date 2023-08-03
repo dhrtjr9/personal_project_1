@@ -12,7 +12,10 @@ class ProductForm(FlaskForm):
     id = IntegerField("상품번호", validators=[DataRequired()])
     product_name = StringField("상품명", validators=[DataRequired()])
     price = IntegerField("가격", validators=[DataRequired()]) #(5,2) 추가하려면 어떡해야하죠
-    # number = IntegerField("가격", validators=[DataRequired()])
     quantity = IntegerField("수량", validators=[DataRequired()]) #default=1 추가하려면 어떡해야하죠
+
+# class CartForm(FlaskForm):
+#     user_id = StringField("사용자ID", validators=[DataRequired(), Length(5, 15, "ID는 5글자 이상 15글자 이내여야 합니다.")])
+#     id = IntegerField("상품번호", validators=[DataRequired()])
 
 # init에 저장해야한다.
